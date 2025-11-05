@@ -12,7 +12,6 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Locale;
 
-// 👉 Ajuste le package ci-dessous si besoin :
 import ma.emsi.elyacoubimohamedamine.tp2elyacoubimohamedamineweb.llm.LlmClient;
 
 /**
