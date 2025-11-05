@@ -137,16 +137,7 @@ public class Bb implements Serializable {
             }
             this.roleSystemeChangeable = false;
 
-            // ➜ On informe le client LLM du rôle système (il réinitialise sa mémoire et ajoute un SystemMessage)
-            try {
-                llmClient.setSystemRole(this.roleSysteme);
-            } catch (Exception e) {
-                facesContext.addMessage(null, new FacesMessage(
-                        FacesMessage.SEVERITY_ERROR,
-                        "Problème de configuration du LLM",
-                        "Impossible de définir le rôle système : " + e.getMessage()));
-                return null;
-            }
+
         }
 
         try {

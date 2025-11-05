@@ -42,6 +42,17 @@
           <version>15.0.7</version>
           <classifier>jakarta</classifier>
       </dependency>
+          <dependency>
+              <groupId>dev.langchain4j</groupId>
+              <artifactId>langchain4j</artifactId>
+              <version>1.8.0</version>
+          </dependency>
+          <dependency>
+              <groupId>dev.langchain4j</groupId>
+              <artifactId>langchain4j-google-ai-gemini</artifactId>
+              <version>1.8.0</version>
+          </dependency>
+
   </dependencies>
 
   <build>
