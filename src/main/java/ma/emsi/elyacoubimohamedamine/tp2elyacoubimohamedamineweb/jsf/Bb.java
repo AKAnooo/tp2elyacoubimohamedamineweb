@@ -14,59 +14,32 @@ import java.util.Locale;
 
 import ma.emsi.elyacoubimohamedamine.tp2elyacoubimohamedamineweb.llm.LlmClient;
 
-/**
- * Backing bean pour la page JSF index.xhtml.
- * Portée view pour conserver l'état de la conversation qui dure pendant plusieurs requêtes HTTP.
- * La portée view nécessite l'implémentation de Serializable (le backing bean peut être mis en mémoire secondaire).
- */
 @Named
 @ViewScoped
 public class Bb implements Serializable {
 
-    /**
-     * Rôle "système" que l'on attribuera plus tard à un LLM.
-     * Valeur par défaut que l'utilisateur peut modifier.
-     * Possible d'écrire un nouveau rôle dans la liste déroulante.
-     */
     private String roleSysteme;
 
-    /**
-     * Quand le rôle est choisi par l'utilisateur dans la liste déroulante,
-     * il n'est plus possible de le modifier (voir code de la page JSF), sauf si on veut un nouveau chat.
-     */
     private boolean roleSystemeChangeable = true;
 
-    /**
-     * Liste de tous les rôles de l'API prédéfinis.
-     */
+
     private List<SelectItem> listeRolesSysteme;
 
-    /**
-     * Dernière question posée par l'utilisateur.
-     */
     private String question;
-    /**
-     * Dernière réponse de l'API OpenAI.
-     */
+
     private String reponse;
-    /**
-     * La conversation depuis le début.
-     */
+
     private StringBuilder conversation = new StringBuilder();
 
-    /**
-     * Contexte JSF. Utilisé pour qu'un message d'erreur s'affiche dans le formulaire.
-     */
+
     @Inject
     private FacesContext facesContext;
 
-    // ➜ Injection du client LLM (ajout)
+    // ➜ Injection du client LLM
     @Inject
     private LlmClient llmClient;
 
-    /**
-     * Obligatoire pour un bean CDI (classe gérée par CDI), s'il y a un autre constructeur.
-     */
+
     public Bb() {
     }
 
@@ -94,11 +67,6 @@ public class Bb implements Serializable {
         return reponse;
     }
 
-    /**
-     * setter indispensable pour le textarea.
-     *
-     * @param reponse la réponse à la question.
-     */
     public void setReponse(String reponse) {
         this.reponse = reponse;
     }
@@ -111,14 +79,6 @@ public class Bb implements Serializable {
         this.conversation = new StringBuilder(conversation);
     }
 
-    /**
-     * Envoie la question au serveur.
-     * En attendant de l'envoyer à un LLM, le serveur fait un traitement quelconque, juste pour tester :
-     * Le traitement consiste à copier la question en minuscules et à l'entourer avec "||". Le rôle système
-     * est ajouté au début de la première réponse.
-     *
-     * @return null pour rester sur la même page.
-     */
     public String envoyer() {
         if (question == null || question.isBlank()) {
             FacesMessage message = new FacesMessage(
@@ -164,23 +124,10 @@ public class Bb implements Serializable {
         return new StringBuilder(nettoye).reverse().toString().equals(nettoye);
     }
 
-
-    /**
-     * Pour un nouveau chat.
-     * Termine la portée view en retournant "index" (la page index.xhtml sera affichée après le traitement
-     * effectué pour construire la réponse) et pas null. null aurait indiqué de rester dans la même page (index.xhtml)
-     * sans changer de vue.
-     * Le fait de changer de vue va faire supprimer l'instance en cours du backing bean par CDI et donc on reprend
-     * tout comme au début puisqu'une nouvelle instance du backing va être utilisée par la page index.xhtml.
-     * @return "index"
-     */
     public String nouveauChat() {
         return "index";
     }
 
-    /**
-     * Pour afficher la conversation dans le textArea de la page JSF.
-     */
     private void afficherConversation() {
         this.conversation.append("== User:\n").append(question).append("\n== Serveur:\n").append(reponse).append("\n");
     }

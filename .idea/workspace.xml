@@ -1,11 +1,19 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+  <component name="ArtifactsWorkspaceSettings">
+    <artifacts-to-build>
+      <artifact name="tp2elyacoubimohamedamineweb:war exploded" />
+    </artifacts-to-build>
+  </component>
   <component name="AutoImportSettings">
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="dd596ef9-eeb7-4f9c-9e9d-946e5cb8b7a9" name="Changes" comment="Modification du xeb.xml et ajout de CharsetFilter pour les accents">
+    <list default="true" id="dd596ef9-eeb7-4f9c-9e9d-946e5cb8b7a9" name="Changes" comment="Version finale ajout de LlmClient et de l'interface Assistant">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ma/emsi/elyacoubimohamedamine/tp2elyacoubimohamedamineweb/jsf/Bb.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ma/emsi/elyacoubimohamedamine/tp2elyacoubimohamedamineweb/jsf/Bb.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ma/emsi/elyacoubimohamedamine/tp2elyacoubimohamedamineweb/llm/LlmClient.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ma/emsi/elyacoubimohamedamine/tp2elyacoubimohamedamineweb/llm/LlmClient.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -35,6 +43,13 @@
     &quot;accountId&quot;: &quot;1c3aeb44-fb0f-4455-ac6c-efaf48502b0a&quot;
   }
 }</component>
+  <component name="LogFilters">
+    <option name="FILTER_ERRORS" value="false" />
+    <option name="FILTER_WARNINGS" value="false" />
+    <option name="FILTER_INFO" value="true" />
+    <option name="FILTER_DEBUG" value="true" />
+    <option name="CUSTOM_FILTER" />
+  </component>
   <component name="MavenImportPreferences">
     <option name="generalSettings">
       <MavenGeneralSettings>
@@ -50,23 +65,24 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "ModuleVcsDetector.initialDetectionPerformed": "true",
-    "Payara Server.Payara 6.2025.10.executor": "Run",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "RunOnceActivity.git.unshallow": "true",
-    "git-widget-placeholder": "master",
-    "kotlin-language-version-configured": "true",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_package_manager_path": "npm",
-    "settings.editor.selected.configurable": "preferences.lookFeel",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;ModuleVcsDetector.initialDetectionPerformed&quot;: &quot;true&quot;,
+    &quot;Payara Server.Payara 6.2025.10.executor&quot;: &quot;Run&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager.252&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;master&quot;,
+    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.lookFeel&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
-}]]></component>
+}</component>
   <component name="RunManager">
     <configuration name="Payara 6.2025.10" type="PayaraServerConfiguration" factoryName="Local" APPLICATION_SERVER_NAME="Payara 6.2025.10" ALTERNATIVE_JRE_ENABLED="false">
       <deployment>
@@ -126,7 +142,9 @@
       <updated>1762291045596</updated>
       <workItem from="1762291047138" duration="3211000" />
       <workItem from="1762350573413" duration="183000" />
-      <workItem from="1762368159182" duration="4141000" />
+      <workItem from="1762368159182" duration="4414000" />
+      <workItem from="1762466927575" duration="248000" />
+      <workItem from="1762598735115" duration="2179000" />
     </task>
     <task id="LOCAL-00001" summary="Etat initial : Copie du JSF et du index.xhtml ainsi qu'ajout de dependances">
       <option name="closed" value="true" />
@@ -160,16 +178,36 @@
       <option name="project" value="LOCAL" />
       <updated>1762372212018</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="Version finale ajout de LlmClient et de l'interface Assistant">
+      <option name="closed" value="true" />
+      <created>1762372795259</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1762372795259</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
   </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Etat initial : Copie du JSF et du index.xhtml ainsi qu'ajout de dependances" />
     <MESSAGE value="Changement du Bb du TP1 pour qu'il ne prenne plus en charge Json" />
     <MESSAGE value="Modification du xeb.xml et ajout de CharsetFilter pour les accents" />
-    <option name="LAST_COMMIT_MESSAGE" value="Modification du xeb.xml et ajout de CharsetFilter pour les accents" />
+    <MESSAGE value="Version finale ajout de LlmClient et de l'interface Assistant" />
+    <option name="LAST_COMMIT_MESSAGE" value="Version finale ajout de LlmClient et de l'interface Assistant" />
   </component>
 </project>

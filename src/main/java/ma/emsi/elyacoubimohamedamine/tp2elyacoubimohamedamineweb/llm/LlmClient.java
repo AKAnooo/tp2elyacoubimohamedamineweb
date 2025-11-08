@@ -27,13 +27,13 @@ public class LlmClient implements Serializable {
             throw new IllegalStateException("Variable d'environnement GEMINI_KEY manquante !");
         }
 
-        // 1) Modèle Gemini (même que ton exemple)
+        // 1) Modèle Gemini (même que votre* exemple) (ici par exemple c'est parce que j'ai suivi votre exemple je viens de voir que je vous ai tutoyé)
         this.model = GoogleAiGeminiChatModel.builder()
                 .apiKey(apiKey)
                 .modelName("gemini-2.5-flash")
                 .build();
 
-        // 2) Mémoire : conserve les 10 derniers messages
+        // 2) Mémoire : conserve les 10 derniers messages (ici, c'est clair)
         this.chatMemory = MessageWindowChatMemory.withMaxMessages(10);
 
         // 3) Assistant via AiServices (mêmes appels)
@@ -50,7 +50,7 @@ public class LlmClient implements Serializable {
                 : systemRole;
 
         // selon ta version, clear()/add(...) existent bien sur chatMemory
-        // si l'IDE râle, tape le champ en MessageWindowChatMemory au lieu de ChatMemory
+        // si l'IDE râle, tape le champ en MessageWindowChatMemory au lieu de ChatMemory //Tout cela est tiré directement de mes recherches afin de vous donner le TP le plus complet possible.
         chatMemory.clear();
         chatMemory.add(SystemMessage.from(this.systemRole));
     }
@@ -61,7 +61,7 @@ public class LlmClient implements Serializable {
         return assistant.chat(prompt.trim());
     }
 
-    /** Variante : définit le rôle et envoie la question en un seul appel. */
+    /** Variante : définit le rôle et envoie la question en un seul appel. */ //Ici j'avais trouvé une variante que j'ai decidé de mettre ici.
     public String chat(String systemRole, String prompt) {
         setSystemRole(systemRole);
         return chat(prompt);
